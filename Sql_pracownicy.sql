@@ -35,7 +35,7 @@ SELECT imie, nazwisko, wyplata*1.1 as wyplata_powiekszona_o_10pro, data_urodzeni
 
 -- 7. Usuwanie najmłodszego pracownika
 DELETE FROM employee
-where data_urodzenia in (SELECT MIN(data_urodzenia) from employee);
+where data_urodzenia in (SELECT * FROM (SELECT MIN(data_urodzenia) from employee) as t);
 
 -- 8. Usuwanie tabeli pracownik
 DROP TABLE employee;
